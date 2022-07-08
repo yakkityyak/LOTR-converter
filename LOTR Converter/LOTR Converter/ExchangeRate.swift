@@ -22,7 +22,6 @@ struct ExchangeRate: View {
                 .frame(height: 33)
             
             Text(text)
-                .foregroundColor(.black.opacity(0.8))
             
             Image(rightImage)
                 .resizable()
