@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var leftAmount = ""
+    @State var rightAmount = ""
+    
     var body: some View {
         ZStack {
             Image("background")
@@ -38,8 +42,12 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
+                        .padding(.bottom, -5)
                         
-                        Text("Text Field")
+                        TextField("Amount", text: $leftAmount)
+                            .padding(7)
+                            .background(Color(UIColor.systemGray6))
+                            .cornerRadius(7)
                     }
                     Image(systemName: "equal")
                         .font(.largeTitle)
@@ -57,10 +65,19 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(height: 33)
                             }
+                        .padding(.bottom, -5)
                         
-                        Text("Text field")
+                        TextField("Amount", text: $rightAmount)
+                            .padding(7)
+                            .background(Color(UIColor.systemGray6))
+                            .cornerRadius(7)
+                            .multilineTextAlignment(.trailing)
                     }
                 }
+                .padding()
+                .background(.black.opacity(0.5))
+                .cornerRadius(40)
+                
                 Spacer()
                 HStack {
                     Spacer()
@@ -71,7 +88,7 @@ struct ContentView: View {
                     }
                     .font(.largeTitle)
                     .foregroundColor(.white)
-                    .padding()
+                    .padding(.trailing)
                 }
             }
         }
