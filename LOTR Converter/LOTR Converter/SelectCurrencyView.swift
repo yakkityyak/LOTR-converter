@@ -22,14 +22,14 @@ struct SelectCurrencyView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     
-                // currency icons  
+                // currency icons
                 LazyVGrid(columns: gridLayout) {
                     ForEach(0..<5) { _ in
                         CurrencyIcon(currencyImage: "copperpenny", currencyText: "Copper penny")
                     }
                 }
                 
-                
+                //Text
                 Text("Select the currency yoyu would like to conver to:")
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
