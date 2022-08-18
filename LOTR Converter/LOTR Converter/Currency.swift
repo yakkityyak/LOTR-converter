@@ -22,9 +22,9 @@ enum CurrencyText: String, CaseIterable {
 }
 
 enum CurrencyImage: String, CaseIterable {
-    case copperPenny = "copperPenny"
-    case silverPenny = "silverPenny"
-    case silverPiece = "silverPiece"
-    case goldPenny = "goldPenny"
-    case goldPiece = "goldPiece"
+    case copperPenny = "copperpenny"
+    case silverPenny = "silverpenny"
+    case silverPiece = "silverpiece"
+    case goldPenny = "goldpenny"
+    case goldPiece = "goldpiece"
 }
