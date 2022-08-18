@@ -13,6 +13,8 @@ struct ContentView: View {
     @State var rightAmount = ""
     @State var leftCurrency: Currency = .silverPiece
     @State var rightCurrency: Currency = .goldPiece
+    @State var showSelectCurrency = false
+    @State var showExchangeInfo = false
     
     var body: some View {
         ZStack {
@@ -45,6 +47,12 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                         }
                         .padding(.bottom, -5)
+                        .onTapGesture {
+                            showSelectCurrency.toggle()
+                        }
+                        .sheet(isPresented: $showSelectCurrency){
+                            SelectCurrencyView(leftCurrency: $leftCurrency, rightCurrency: $rightCurrency)
+                        }
                         
                         TextField("Amount", text: $leftAmount)
                             .padding(7)
@@ -68,7 +76,14 @@ struct ContentView: View {
                                 .frame(height: 33)
                             }
                         .padding(.bottom, -5)
+                        .onTapGesture {
+                            showSelectCurrency.toggle()
+                        }
+                        .sheet(isPresented: $showSelectCurrency){
+                            SelectCurrencyView(leftCurrency: $leftCurrency, rightCurrency: $rightCurrency)
+                        }
                         
+                        //TextField
                         TextField("Amount", text: $rightAmount)
                             .padding(7)
                             .background(Color(UIColor.systemGray6))
@@ -81,16 +96,21 @@ struct ContentView: View {
                 .cornerRadius(40)
                 
                 Spacer()
+                
                 HStack {
                     Spacer()
+                    
                     Button {
-                        
+                        showExchangeInfo.toggle()
                     } label: {
                         Image(systemName: "info.circle.fill")
                     }
                     .font(.largeTitle)
                     .foregroundColor(.white)
                     .padding(.trailing)
+                    .sheet(isPresented: $showExchangeInfo) {
+                        ExchangeInfoView()
+                    }
                 }
             }
         }
